@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>متجر الساعات الفاخرة | ساعات احترافية</title>
+  <style>
+    :root {
+      --black: #121212;
+      --light-green: #9AE6B4;
+      --dark-green: #68D391;
+      --gray: #2D3748;
+      --white: #F7FAFC;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Tajawal', sans-serif;
+    }
+    
+    body {
+      background-color: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    /* Header */
+    header {
+      background-color: var(--black);
+      padding: 1rem 0;
+      border-bottom: 2px solid var(--light-green);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--light-green);
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-menu li {
+      margin-right: 1.5rem;
+    }
+    
+    .nav-menu a {
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .nav-menu a:hover {
+      color: var(--light-green);
+    }
+    
+    .cart-icon {
+      font-size: 1.5rem;
+      background-color: var(--light-green);
+      color: var(--black);
+      padding: 0.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    
+    /* Hero Section */
+    .hero {
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/600');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    
+    .hero-content {
+      max-width: 600px;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--light-green);
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: var(--light-green);
+      color: var(--black);
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-decoration: none;
+    }
+    
+    .btn:hover {
+      background-color: var(--dark-green);
+    }
+    
+    /* Featured Products */
+    .featured {
+      padding: 5rem 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--light-green);
+      font-size: 2rem;
+    }
+    
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .product {
+      background-color: var(--gray);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    
+    .product:hover {
+      transform: translateY(-10px);
+    }
+    
+    .product-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background-color: var(--white);
+    }
+    
+    .product-details {
+      padding: 1.5rem;
+    }
+    
+    .product-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .product-price {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--light-green);
+      margin-bottom: 1rem;
+    }
+    
+    /* Categories */
+    .categories {
+      padding: 5rem 0;
+      background-color: var(--gray);
+    }
+    
+    .category-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    
+    .category {
+      position: relative;
+      height: 200px;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    
+    .category img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    
+    .category:hover img {
+      transform: scale(1.1);
+    }
+    
+    .category-name {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: var(--light-green);
+      padding: 1rem;
+      text-align: center;
+      font-weight: bold;
+    }
+    
+    /* Newsletter */
+    .newsletter {
+      padding: 5rem 0;
+      text-align: center;
+    }
+    
+    .newsletter-form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+    }
+    
+    .newsletter-input {
+      flex: 1;
+      padding: 0.8rem;
+      border: 2px solid var(--light-green);
+      border-radius: 5px 0 0 5px;
+      background-color: var(--gray);
+      color: var(--white);
+      font-size: 1rem;
+    }
+    
+    .newsletter-btn {
+      background-color: var(--light-green);
+      color: var(--black);
+      border: none;
+      padding: 0 1.5rem;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--gray);
+      padding: 3rem 0;
+      border-top: 2px solid var(--light-green);
+    }
+    
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    
+    .footer-col h3 {
+      color: var(--light-green);
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .footer-links a {
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--light-green);
+    }
+    
+    .social-links {
+      display: flex;
+      margin-top: 1rem;
+    }
+    
+    .social-icon {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: var(--light-green);
+      color: var(--black);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      font-size: 1.2rem;
+      transition: background-color 0.3s;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--dark-green);
+    }
+    
+    .copyright {
+      text-align: center;
+      margin-top: 3rem;
+      color: var(--white);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo">ساعات فاخرة</div>
+      <ul class="nav-menu">
+        <li><a href="#">الرئيسية</a></li>
+        <li><a href="#">المتجر</a></li>
+        <li><a href="#">الفئات</a></li>
+        <li><a href="#">المجموعات الجديدة</a></li>
+        <li><a href="#">من نحن</a></li>
+        <li><a href="#">اتصل بنا</a></li>
+      </ul>
+      <div class="cart-icon">🛒</div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>اكتشف مجموعتنا الفاخرة من الساعات</h1>
+      <p>تصاميم عصرية وفريدة لساعات تناسب جميع الأذواق والمناسبات. صناعة عالمية بجودة لا مثيل لها.</p>
+      <a href="#" class="btn">تسوق الآن</a>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="featured">
+    <div class="container">
+      <h2 class="section-title">منتجات مميزة</h2>
+      <div class="products">
+        <!-- Product 1 -->
+        <div class="product">
+          <img src="/api/placeholder/300/200" alt="ساعة كلاسيكية" class="product-img">
+          <div class="product-details">
+            <h3 class="product-title">ساعة كلاسيكية سوداء</h3>
+            <div class="product-price">1,299 ر.س</div>
+            <button class="btn">أضف إلى السلة</button>
+          </div>
+        </div>
+        
+        <!-- Product 2 -->
+        <div class="product">
+          <img src="/api/placeholder/300/200" alt="ساعة رياضية" class="product-img">
+          <div class="product-details">
+            <h3 class="product-title">ساعة رياضية مقاومة للماء</h3>
+            <div class="product-price">899 ر.س</div>
+            <button class="btn">أضف إلى السلة</button>
+          </div>
+        </div>
+        
+        <!-- Product 3 -->
+        <div class="product">
+          <img src="/api/placeholder/300/200" alt="ساعة ذكية" class="product-img">
+          <div class="product-details">
+            <h3 class="product-title">ساعة ذكية متعددة المهام</h3>
+            <div class="product-price">1,599 ر.س</div>
+            <button class="btn">أضف إلى السلة</button>
+          </div>
+        </div>
+        
+        <!-- Product 4 -->
+        <div class="product">
+          <img src="/api/placeholder/300/200" alt="ساعة فاخرة" class="product-img">
+          <div class="product-details">
+            <h3 class="product-title">ساعة فاخرة محدودة الإصدار</h3>
+            <div class="product-price">2,999 ر.س</div>
+            <button class="btn">أضف إلى السلة</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="categories">
+    <div class="container">
+      <h2 class="section-title">تصفح حسب الفئة</h2>
+      <div class="category-list">
+        <div class="category">
+          <img src="/api/placeholder/300/300" alt="ساعات رجالية">
+          <div class="category-name">ساعات رجالية</div>
+        </div>
+        <div class="category">
+          <img src="/api/placeholder/300/300" alt="ساعات نسائية">
+          <div class="category-name">ساعات نسائية</div>
+        </div>
+        <div class="category">
+          <img src="/api/placeholder/300/300" alt="ساعات رياضية">
+          <div class="category-name">ساعات رياضية</div>
+        </div>
+        <div class="category">
+          <img src="/api/placeholder/300/300" alt="ساعات ذكية">
+          <div class="category-name">ساعات ذكية</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <div class="container">
+      <h2 class="section-title">اشترك في نشرتنا البريدية</h2>
+      <p>احصل على آخر العروض والإصدارات الجديدة مباشرة إلى بريدك الإلكتروني</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="أدخل بريدك الإلكتروني" class="newsletter-input" required>
+        <button type="submit" class="newsletter-btn">اشترك</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-container">
+      <div class="footer-col">
+        <h3>عن الشركة</h3>
+        <ul class="footer-links">
+          <li><a href="#">من نحن</a></li>
+          <li><a href="#">فريق العمل</a></li>
+          <li><a href="#">الوظائف</a></li>
+          <li><a href="#">تواصل معنا</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h3>خدمة العملاء</h3>
+        <ul class="footer-links">
+          <li><a href="#">طرق الدفع</a></li>
+          <li><a href="#">الشحن والتوصيل</a></li>
+          <li><a href="#">سياسة الاسترجاع</a></li>
+          <li><a href="#">الأسئلة الشائعة</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h3>المنتجات</h3>
+        <ul class="footer-links">
+          <li><a href="#">ساعات رجالية</a></li>
+          <li><a href="#">ساعات نسائية</a></li>
+          <li><a href="#">ساعات رياضية</a></li>
+          <li><a href="#">ساعات ذكية</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h3>تابعنا</h3>
+        <p>تواصل معنا على منصات التواصل الاجتماعي</p>
+        <div class="social-links">
+          <a href="#" class="social-icon">𝕏</a>
+          <a href="#" class="social-icon">𝕗</a>
+          <a href="#" class="social-icon">𝕚</a>
+          <a href="#" class="social-icon">𝕪</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      جميع الحقوق محفوظة &copy; 2025 - متجر الساعات الفاخرة
+    </div>
+  </footer>
+</body>
+</html>
